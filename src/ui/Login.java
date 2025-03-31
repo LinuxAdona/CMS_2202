@@ -64,6 +64,11 @@ public class Login extends javax.swing.JFrame {
         txtUser.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Username/Code", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Poppins", 1, 12))); // NOI18N
 
         txtPass.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Poppins", 1, 12))); // NOI18N
+        txtPass.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtPassKeyPressed(evt);
+            }
+        });
 
         btnLogin.setBackground(new java.awt.Color(175, 17, 17));
         btnLogin.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
@@ -193,6 +198,12 @@ public class Login extends javax.swing.JFrame {
             txtUser.setText("");
         }
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void txtPassKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPassKeyPressed
+        if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+            btnLoginActionPerformed(null);
+        }
+    }//GEN-LAST:event_txtPassKeyPressed
 
     private void startCountdown() {
         btnLogin.setText("");
