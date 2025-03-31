@@ -3,12 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/ADMIN/OneDrive/Documents/NetBeansProjects/CMS_2202/src/ui/AdminPage.java</file>
-            <file>file:/C:/Users/ADMIN/OneDrive/Documents/NetBeansProjects/CMS_2202/src/services/UserService.java</file>
-            <file>file:/C:/Users/ADMIN/OneDrive/Documents/NetBeansProjects/CMS_2202/src/models/User.java</file>
-            <file>file:/C:/Users/ADMIN/OneDrive/Documents/NetBeansProjects/CMS_2202/src/main/CMS.java</file>
-            <file>file:/C:/Users/ADMIN/OneDrive/Documents/NetBeansProjects/CMS_2202/src/utils/PassUtil.java</file>
-            <file>file:/C:/Users/ADMIN/OneDrive/Documents/NetBeansProjects/CMS_2202/src/ui/Login.java</file>
+            <file>file:/C:/Users/Quene/Documents/NetBeansProjects/CMS_2202/src/ui/StudentInfo.java</file>
+            <file>file:/C:/Users/Quene/Documents/NetBeansProjects/CMS_2202/src/ui/AdminFrame.java</file>
+            <file>file:/C:/Users/Quene/Documents/NetBeansProjects/CMS_2202/src/ui/Login.java</file>
         </group>
     </open-files>
 </project-private>

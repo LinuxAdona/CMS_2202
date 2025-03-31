@@ -4,14 +4,6 @@
  */
 package ui;
 
-import javax.swing.table.DefaultTableModel;
-import javax.swing.JOptionPane;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import utils.DBConnection;
-
 /**
  *
  * @author ADMIN
@@ -29,28 +21,6 @@ public class AdminFrame extends javax.swing.JFrame {
         Curriculum.setVisible(false);
         SubjectCourses.setVisible(false);
         Programs.setVisible(false);
-    }
-    
-    private void loadCourses() {
-        DefaultTableModel model = (DefaultTableModel) TbStudents.getModel();
-        model.setRowCount(0);
-        
-        String sql = """
-                     SELECT c.course_code, c.course_title, c.units, c.lec_hrs, c.lab_hrs, c.year_level, c.semester
-                     FROM courses c
-                     INNER JOIN course_program cp ON c.course_id = cp.course_id
-                     INNER JOIN programs p ON cp.program_id = p.program_id
-                     INNER JOIN program_college pc ON p.program_id = pc.program_id
-                     INNER JOIN colleges d ON pc.college_id = d.college_id
-                     """;
-        
-        try (Connection conn = DBConnection.getConnection()) {
-            try (PreparedStatement ps = conn.prepareStatement(sql)) {
-                
-            }
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(this, "Database Error: " + e.getMessage(), "Database Error", JOptionPane.ERROR_MESSAGE);
-        }
     }
 
     /**
