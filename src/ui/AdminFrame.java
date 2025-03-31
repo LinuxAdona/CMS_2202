@@ -36,14 +36,14 @@ public class AdminFrame extends javax.swing.JFrame {
         Header = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        lblHome = new javax.swing.JLabel();
         NavBar = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        lblStudentInfo = new javax.swing.JLabel();
+        lblCurriculum = new javax.swing.JLabel();
+        lblSubjectCourses = new javax.swing.JLabel();
+        lblPrograms = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jLayeredPane1 = new javax.swing.JLayeredPane();
+        Content = new javax.swing.JLayeredPane();
         Curriculum = new javax.swing.JPanel();
         StudentInfo = new javax.swing.JPanel();
         SubjectCourses = new javax.swing.JPanel();
@@ -87,10 +87,16 @@ public class AdminFrame extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Time!");
 
-        jLabel4.setFont(new java.awt.Font("Montserrat", 1, 24)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/BSU-LOGO-60x60.png"))); // NOI18N
-        jLabel4.setText("  Batangas State University");
+        lblHome.setFont(new java.awt.Font("Montserrat", 1, 24)); // NOI18N
+        lblHome.setForeground(new java.awt.Color(0, 0, 0));
+        lblHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/BSU-LOGO-60x60.png"))); // NOI18N
+        lblHome.setText("  Batangas State University");
+        lblHome.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblHome.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblHomeMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout HeaderLayout = new javax.swing.GroupLayout(Header);
         Header.setLayout(HeaderLayout);
@@ -98,7 +104,7 @@ public class AdminFrame extends javax.swing.JFrame {
             HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HeaderLayout.createSequentialGroup()
                 .addGap(33, 33, 33)
-                .addComponent(jLabel4)
+                .addComponent(lblHome)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(HeaderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(HeaderLayout.createSequentialGroup()
@@ -115,30 +121,54 @@ public class AdminFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addContainerGap(25, Short.MAX_VALUE))
-            .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(lblHome, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         NavBar.setBackground(new java.awt.Color(220, 220, 220));
 
-        jLabel1.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/group-solid-48.png"))); // NOI18N
-        jLabel1.setText(" Student Information");
+        lblStudentInfo.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
+        lblStudentInfo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblStudentInfo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/group-solid-48.png"))); // NOI18N
+        lblStudentInfo.setText(" Student Information");
+        lblStudentInfo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblStudentInfo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblStudentInfoMouseClicked(evt);
+            }
+        });
 
-        jLabel5.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/file-solid-36.png"))); // NOI18N
-        jLabel5.setText("  Curriculum");
+        lblCurriculum.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
+        lblCurriculum.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblCurriculum.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/file-solid-36.png"))); // NOI18N
+        lblCurriculum.setText("  Curriculum");
+        lblCurriculum.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblCurriculum.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblCurriculumMouseClicked(evt);
+            }
+        });
 
-        jLabel6.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/book-solid-36.png"))); // NOI18N
-        jLabel6.setText("   Subject/Courses");
+        lblSubjectCourses.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
+        lblSubjectCourses.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSubjectCourses.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/book-solid-36.png"))); // NOI18N
+        lblSubjectCourses.setText("   Subject/Courses");
+        lblSubjectCourses.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblSubjectCourses.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblSubjectCoursesMouseClicked(evt);
+            }
+        });
 
-        jLabel7.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/bank-solid-36.png"))); // NOI18N
-        jLabel7.setText("  Programs");
+        lblPrograms.setFont(new java.awt.Font("Open Sans", 0, 14)); // NOI18N
+        lblPrograms.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblPrograms.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/bank-solid-36.png"))); // NOI18N
+        lblPrograms.setText("  Programs");
+        lblPrograms.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        lblPrograms.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblProgramsMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout NavBarLayout = new javax.swing.GroupLayout(NavBar);
         NavBar.setLayout(NavBarLayout);
@@ -146,22 +176,22 @@ public class AdminFrame extends javax.swing.JFrame {
             NavBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(NavBarLayout.createSequentialGroup()
                 .addGap(70, 70, 70)
-                .addComponent(jLabel1)
+                .addComponent(lblStudentInfo)
                 .addGap(60, 60, 60)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblCurriculum, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(96, 96, 96)
-                .addComponent(jLabel6)
+                .addComponent(lblSubjectCourses)
                 .addGap(76, 76, 76)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblPrograms, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         NavBarLayout.setVerticalGroup(
             NavBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(NavBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblSubjectCourses, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblPrograms, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblCurriculum, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(lblStudentInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout CurriculumLayout = new javax.swing.GroupLayout(Curriculum);
@@ -459,40 +489,40 @@ public class AdminFrame extends javax.swing.JFrame {
                 .addContainerGap(131, Short.MAX_VALUE))
         );
 
-        jLayeredPane1.setLayer(Curriculum, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(StudentInfo, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(SubjectCourses, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(Programs, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(HomeDashboard, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Content.setLayer(Curriculum, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Content.setLayer(StudentInfo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Content.setLayer(SubjectCourses, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Content.setLayer(Programs, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Content.setLayer(HomeDashboard, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
-        javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
-        jLayeredPane1.setLayout(jLayeredPane1Layout);
-        jLayeredPane1Layout.setHorizontalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout ContentLayout = new javax.swing.GroupLayout(Content);
+        Content.setLayout(ContentLayout);
+        ContentLayout.setHorizontalGroup(
+            ContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(StudentInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(Curriculum, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(SubjectCourses, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(Programs, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(HomeDashboard, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jLayeredPane1Layout.setVerticalGroup(
-            jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        ContentLayout.setVerticalGroup(
+            ContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(StudentInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(Curriculum, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(SubjectCourses, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(Programs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(ContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(HomeDashboard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jScrollPane1.setViewportView(jLayeredPane1);
+        jScrollPane1.setViewportView(Content);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -537,7 +567,63 @@ public class AdminFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void lblStudentInfoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblStudentInfoMouseClicked
+        HomeDashboard.setVisible(false);
+        StudentInfo.setVisible(true);
+        Curriculum.setVisible(false);
+        SubjectCourses.setVisible(false);
+        Programs.setVisible(false);
+        
+        Content.revalidate();
+        Content.repaint();
+    }//GEN-LAST:event_lblStudentInfoMouseClicked
+
+    private void lblCurriculumMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCurriculumMouseClicked
+        HomeDashboard.setVisible(false);
+        StudentInfo.setVisible(false);
+        Curriculum.setVisible(true);
+        SubjectCourses.setVisible(false);
+        Programs.setVisible(false);
+        
+        Content.revalidate();
+        Content.repaint();
+    }//GEN-LAST:event_lblCurriculumMouseClicked
+
+    private void lblSubjectCoursesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblSubjectCoursesMouseClicked
+        HomeDashboard.setVisible(false);
+        StudentInfo.setVisible(false);
+        Curriculum.setVisible(false);
+        SubjectCourses.setVisible(true);
+        Programs.setVisible(false);
+        
+        Content.revalidate();
+        Content.repaint();
+    }//GEN-LAST:event_lblSubjectCoursesMouseClicked
+
+    private void lblProgramsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblProgramsMouseClicked
+        HomeDashboard.setVisible(false);
+        StudentInfo.setVisible(false);
+        Curriculum.setVisible(false);
+        SubjectCourses.setVisible(false);
+        Programs.setVisible(true);
+        
+        Content.revalidate();
+        Content.repaint();
+    }//GEN-LAST:event_lblProgramsMouseClicked
+
+    private void lblHomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblHomeMouseClicked
+        HomeDashboard.setVisible(true);
+        StudentInfo.setVisible(false);
+        Curriculum.setVisible(false);
+        SubjectCourses.setVisible(false);
+        Programs.setVisible(false);
+        
+        Content.revalidate();
+        Content.repaint();
+    }//GEN-LAST:event_lblHomeMouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLayeredPane Content;
     private javax.swing.JPanel Curriculum;
     private javax.swing.JPanel Header;
     private javax.swing.JPanel HomeDashboard;
@@ -546,7 +632,6 @@ public class AdminFrame extends javax.swing.JFrame {
     private javax.swing.JPanel StudentInfo;
     private javax.swing.JPanel SubjectCourses;
     private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -561,13 +646,8 @@ public class AdminFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -576,5 +656,10 @@ public class AdminFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lblCurriculum;
+    private javax.swing.JLabel lblHome;
+    private javax.swing.JLabel lblPrograms;
+    private javax.swing.JLabel lblStudentInfo;
+    private javax.swing.JLabel lblSubjectCourses;
     // End of variables declaration//GEN-END:variables
 }
