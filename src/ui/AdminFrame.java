@@ -4,6 +4,14 @@
  */
 package ui;
 
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import utils.DBConnection;
+
 /**
  *
  * @author ADMIN
@@ -21,6 +29,28 @@ public class AdminFrame extends javax.swing.JFrame {
         Curriculum.setVisible(false);
         SubjectCourses.setVisible(false);
         Programs.setVisible(false);
+    }
+    
+    private void loadCourses() {
+        DefaultTableModel model = (DefaultTableModel) tbCourses.getModel();
+        model.setRowCount(0);
+        
+        String sql = """
+                     SELECT c.course_code, c.course_title, c.units, c.lec_hrs, c.lab_hrs, c.year_level, c.semester
+                     FROM courses c
+                     INNER JOIN course_program cp ON c.course_id = cp.course_id
+                     INNER JOIN programs p ON cp.program_id = p.program_id
+                     INNER JOIN program_college pc ON p.program_id = pc.program_id
+                     INNER JOIN colleges d ON pc.college_id = d.college_id
+                     """;
+        
+        try (Connection conn = DBConnection.getConnection()) {
+            try (PreparedStatement ps = conn.prepareStatement(sql)) {
+                
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(this, "Database Error: " + e.getMessage(), "Database Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     /**
@@ -57,7 +87,7 @@ public class AdminFrame extends javax.swing.JFrame {
         Programs = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tbPrograms = new javax.swing.JTable();
         txtSearchProgram = new javax.swing.JTextField();
         lblSearchProgram = new javax.swing.JLabel();
         cbDepartmentP = new javax.swing.JComboBox<>();
@@ -302,7 +332,7 @@ public class AdminFrame extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
         jLabel4.setText("List of Programs");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tbPrograms.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
                 {null},
@@ -321,12 +351,12 @@ public class AdminFrame extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setRowHeight(30);
-        jTable1.getTableHeader().setResizingAllowed(false);
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jScrollPane3.setViewportView(jTable1);
-        if (jTable1.getColumnModel().getColumnCount() > 0) {
-            jTable1.getColumnModel().getColumn(0).setResizable(false);
+        tbPrograms.setRowHeight(30);
+        tbPrograms.getTableHeader().setResizingAllowed(false);
+        tbPrograms.getTableHeader().setReorderingAllowed(false);
+        jScrollPane3.setViewportView(tbPrograms);
+        if (tbPrograms.getColumnModel().getColumnCount() > 0) {
+            tbPrograms.getColumnModel().getColumn(0).setResizable(false);
         }
 
         txtSearchProgram.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
@@ -793,7 +823,6 @@ public class AdminFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblCurriculum;
     private javax.swing.JLabel lblHome;
     private javax.swing.JLabel lblPrograms;
@@ -802,6 +831,7 @@ public class AdminFrame extends javax.swing.JFrame {
     private javax.swing.JLabel lblStudentInfo;
     private javax.swing.JLabel lblSubjectCourses;
     private javax.swing.JTable tbCourses;
+    private javax.swing.JTable tbPrograms;
     private javax.swing.JTextField txtSearchCourse;
     private javax.swing.JTextField txtSearchProgram;
     // End of variables declaration//GEN-END:variables
