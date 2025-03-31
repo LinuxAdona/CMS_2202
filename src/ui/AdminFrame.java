@@ -52,9 +52,15 @@ public class AdminFrame extends javax.swing.JFrame {
         tbCourses = new javax.swing.JTable();
         txtSearchCourse = new javax.swing.JTextField();
         lblSearchCourse = new javax.swing.JLabel();
-        cbProgram = new javax.swing.JComboBox<>();
-        cbDepartment = new javax.swing.JComboBox<>();
+        cbProgramS = new javax.swing.JComboBox<>();
+        cbDepartmentS = new javax.swing.JComboBox<>();
         Programs = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        txtSearchProgram = new javax.swing.JTextField();
+        lblSearchProgram = new javax.swing.JLabel();
+        cbDepartmentP = new javax.swing.JComboBox<>();
         HomeDashboard = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -209,7 +215,7 @@ public class AdminFrame extends javax.swing.JFrame {
         );
         CurriculumLayout.setVerticalGroup(
             CurriculumLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 418, Short.MAX_VALUE)
+            .addGap(0, 484, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout StudentInfoLayout = new javax.swing.GroupLayout(StudentInfo);
@@ -220,7 +226,7 @@ public class AdminFrame extends javax.swing.JFrame {
         );
         StudentInfoLayout.setVerticalGroup(
             StudentInfoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 418, Short.MAX_VALUE)
+            .addGap(0, 484, Short.MAX_VALUE)
         );
 
         SubjectCourses.setBackground(new java.awt.Color(247, 247, 247));
@@ -240,6 +246,9 @@ public class AdminFrame extends javax.swing.JFrame {
                 "Code", "Title", "Units", "Lec", "Lab", "Year Level", "Semester"
             }
         ));
+        tbCourses.setRowHeight(30);
+        tbCourses.getTableHeader().setResizingAllowed(false);
+        tbCourses.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(tbCourses);
 
         txtSearchCourse.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
@@ -247,56 +256,119 @@ public class AdminFrame extends javax.swing.JFrame {
         lblSearchCourse.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblSearchCourse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/search-regular-24.png"))); // NOI18N
 
-        cbProgram.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Program" }));
+        cbProgramS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Program" }));
 
-        cbDepartment.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Department" }));
+        cbDepartmentS.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Department" }));
 
         javax.swing.GroupLayout SubjectCoursesLayout = new javax.swing.GroupLayout(SubjectCourses);
         SubjectCourses.setLayout(SubjectCoursesLayout);
         SubjectCoursesLayout.setHorizontalGroup(
             SubjectCoursesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(SubjectCoursesLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SubjectCoursesLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(SubjectCoursesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(SubjectCoursesLayout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cbDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cbDepartmentS, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cbProgram, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cbProgramS, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(lblSearchCourse)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtSearchCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 956, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addGap(7, 7, 7))
         );
         SubjectCoursesLayout.setVerticalGroup(
             SubjectCoursesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(SubjectCoursesLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
+                .addGap(13, 13, 13)
                 .addGroup(SubjectCoursesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SubjectCoursesLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel1))
-                    .addComponent(txtSearchCourse, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
                     .addComponent(lblSearchCourse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cbProgram)
-                    .addComponent(cbDepartment))
+                    .addComponent(cbProgramS)
+                    .addComponent(cbDepartmentS)
+                    .addComponent(txtSearchCourse, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
+                    .addGroup(SubjectCoursesLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16))
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
+
+        Programs.setBackground(new java.awt.Color(247, 247, 247));
+
+        jLabel4.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
+        jLabel4.setText("List of Programs");
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null},
+                {null},
+                {null},
+                {null}
+            },
+            new String [] {
+                "Program"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable1.setRowHeight(30);
+        jTable1.getTableHeader().setResizingAllowed(false);
+        jTable1.getTableHeader().setReorderingAllowed(false);
+        jScrollPane3.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setResizable(false);
+        }
+
+        txtSearchProgram.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+
+        lblSearchProgram.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSearchProgram.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/search-regular-24.png"))); // NOI18N
+
+        cbDepartmentP.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Department" }));
 
         javax.swing.GroupLayout ProgramsLayout = new javax.swing.GroupLayout(Programs);
         Programs.setLayout(ProgramsLayout);
         ProgramsLayout.setHorizontalGroup(
             ProgramsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 994, Short.MAX_VALUE)
+            .addGroup(ProgramsLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(ProgramsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(ProgramsLayout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(362, 362, 362)
+                        .addComponent(cbDepartmentP, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblSearchProgram)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtSearchProgram, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 944, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         ProgramsLayout.setVerticalGroup(
             ProgramsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 418, Short.MAX_VALUE)
+            .addGroup(ProgramsLayout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(ProgramsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblSearchProgram, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cbDepartmentP)
+                    .addGroup(ProgramsLayout.createSequentialGroup()
+                        .addGroup(ProgramsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtSearchProgram, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
         );
 
         HomeDashboard.setBackground(new java.awt.Color(247, 247, 247));
@@ -378,7 +450,7 @@ public class AdminFrame extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, 86, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -414,7 +486,7 @@ public class AdminFrame extends javax.swing.JFrame {
                 .addComponent(jLabel16)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel17)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -453,7 +525,7 @@ public class AdminFrame extends javax.swing.JFrame {
                 .addComponent(jLabel19)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel20)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -515,7 +587,7 @@ public class AdminFrame extends javax.swing.JFrame {
         HomeDashboardLayout.setHorizontalGroup(
             HomeDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HomeDashboardLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(11, 11, 11)
                 .addGroup(HomeDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8)
                     .addGroup(HomeDashboardLayout.createSequentialGroup()
@@ -528,26 +600,23 @@ public class AdminFrame extends javax.swing.JFrame {
                         .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
         HomeDashboardLayout.setVerticalGroup(
             HomeDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(HomeDashboardLayout.createSequentialGroup()
-                .addGroup(HomeDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(HomeDashboardLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(HomeDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, HomeDashboardLayout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jLabel8)
-                        .addGap(16, 16, 16)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(9, 9, 9)
+                .addComponent(jLabel8)
+                .addGap(16, 16, 16)
+                .addGroup(HomeDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(HomeDashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(131, Short.MAX_VALUE))
+                .addContainerGap(203, Short.MAX_VALUE))
         );
 
         Content.setLayer(Curriculum, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -692,8 +761,9 @@ public class AdminFrame extends javax.swing.JFrame {
     private javax.swing.JPanel Programs;
     private javax.swing.JPanel StudentInfo;
     private javax.swing.JPanel SubjectCourses;
-    private javax.swing.JComboBox<String> cbDepartment;
-    private javax.swing.JComboBox<String> cbProgram;
+    private javax.swing.JComboBox<String> cbDepartmentP;
+    private javax.swing.JComboBox<String> cbDepartmentS;
+    private javax.swing.JComboBox<String> cbProgramS;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -710,6 +780,7 @@ public class AdminFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
@@ -721,13 +792,17 @@ public class AdminFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblCurriculum;
     private javax.swing.JLabel lblHome;
     private javax.swing.JLabel lblPrograms;
     private javax.swing.JLabel lblSearchCourse;
+    private javax.swing.JLabel lblSearchProgram;
     private javax.swing.JLabel lblStudentInfo;
     private javax.swing.JLabel lblSubjectCourses;
     private javax.swing.JTable tbCourses;
     private javax.swing.JTextField txtSearchCourse;
+    private javax.swing.JTextField txtSearchProgram;
     // End of variables declaration//GEN-END:variables
 }
