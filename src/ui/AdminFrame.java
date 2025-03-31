@@ -47,6 +47,13 @@ public class AdminFrame extends javax.swing.JFrame {
         Curriculum = new javax.swing.JPanel();
         StudentInfo = new javax.swing.JPanel();
         SubjectCourses = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tbCourses = new javax.swing.JTable();
+        txtSearchCourse = new javax.swing.JTextField();
+        lblSearchCourse = new javax.swing.JLabel();
+        cbProgram = new javax.swing.JComboBox<>();
+        cbDepartment = new javax.swing.JComboBox<>();
         Programs = new javax.swing.JPanel();
         HomeDashboard = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
@@ -216,15 +223,69 @@ public class AdminFrame extends javax.swing.JFrame {
             .addGap(0, 418, Short.MAX_VALUE)
         );
 
+        SubjectCourses.setBackground(new java.awt.Color(247, 247, 247));
+
+        jLabel1.setFont(new java.awt.Font("Open Sans", 1, 14)); // NOI18N
+        jLabel1.setText("List of Courses");
+
+        tbCourses.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+        tbCourses.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Code", "Title", "Units", "Lec", "Lab", "Year Level", "Semester"
+            }
+        ));
+        jScrollPane2.setViewportView(tbCourses);
+
+        txtSearchCourse.setFont(new java.awt.Font("Open Sans", 0, 12)); // NOI18N
+
+        lblSearchCourse.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblSearchCourse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/search-regular-24.png"))); // NOI18N
+
+        cbProgram.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Program" }));
+
+        cbDepartment.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Department" }));
+
         javax.swing.GroupLayout SubjectCoursesLayout = new javax.swing.GroupLayout(SubjectCourses);
         SubjectCourses.setLayout(SubjectCoursesLayout);
         SubjectCoursesLayout.setHorizontalGroup(
             SubjectCoursesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 994, Short.MAX_VALUE)
+            .addGroup(SubjectCoursesLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(SubjectCoursesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(SubjectCoursesLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(cbDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbProgram, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lblSearchCourse)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtSearchCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 956, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(19, Short.MAX_VALUE))
         );
         SubjectCoursesLayout.setVerticalGroup(
             SubjectCoursesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 418, Short.MAX_VALUE)
+            .addGroup(SubjectCoursesLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(SubjectCoursesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SubjectCoursesLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel1))
+                    .addComponent(txtSearchCourse, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                    .addComponent(lblSearchCourse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cbProgram)
+                    .addComponent(cbDepartment))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16))
         );
 
         javax.swing.GroupLayout ProgramsLayout = new javax.swing.GroupLayout(Programs);
@@ -631,7 +692,10 @@ public class AdminFrame extends javax.swing.JFrame {
     private javax.swing.JPanel Programs;
     private javax.swing.JPanel StudentInfo;
     private javax.swing.JPanel SubjectCourses;
+    private javax.swing.JComboBox<String> cbDepartment;
+    private javax.swing.JComboBox<String> cbProgram;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -656,10 +720,14 @@ public class AdminFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblCurriculum;
     private javax.swing.JLabel lblHome;
     private javax.swing.JLabel lblPrograms;
+    private javax.swing.JLabel lblSearchCourse;
     private javax.swing.JLabel lblStudentInfo;
     private javax.swing.JLabel lblSubjectCourses;
+    private javax.swing.JTable tbCourses;
+    private javax.swing.JTextField txtSearchCourse;
     // End of variables declaration//GEN-END:variables
 }
