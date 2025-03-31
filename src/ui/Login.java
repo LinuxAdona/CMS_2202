@@ -174,7 +174,7 @@ public class Login extends javax.swing.JFrame {
         if (authResult == 1) {
             loggedInUser = userService.getUserDetails(user);
             JOptionPane.showMessageDialog(this, "Welcome, " + loggedInUser.getRole() + "!", "Login Successful", JOptionPane.INFORMATION_MESSAGE);
-            AdminPage admin = new AdminPage();
+            AdminFrame admin = new AdminFrame();
             admin.setVisible(true);
             this.dispose();
         } else if (authResult == 0) {
