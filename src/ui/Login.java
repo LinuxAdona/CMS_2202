@@ -4,16 +4,28 @@
  */
 package ui;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import models.User;
+import services.UserService;
+import javax.swing.JOptionPane;
+import javax.swing.Timer;
 /**
  *
  * @author ADMIN
  */
-public class LoginFrame extends javax.swing.JFrame {
+public class Login extends javax.swing.JFrame {
 
+    private UserService userService = new UserService();
+    private User loggedInUser = null;
+    private int errorCount = 3;
+    private Timer countdownTimer;
+    private int countdownTime = 30;
+    
     /**
-     * Creates new form LoginFrame
+     * Creates new form Login
      */
-    public LoginFrame() {
+    public Login() {
         initComponents();
     }
 
@@ -31,7 +43,7 @@ public class LoginFrame extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         txtUser = new javax.swing.JTextField();
         txtPass = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
+        btnLogin = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -39,7 +51,7 @@ public class LoginFrame extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("BSU LOGIN");
+        setTitle("LOGIN");
         setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
@@ -53,10 +65,16 @@ public class LoginFrame extends javax.swing.JFrame {
 
         txtPass.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Password", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Montserrat", 1, 12))); // NOI18N
 
-        jButton1.setBackground(new java.awt.Color(153, 153, 255));
-        jButton1.setFont(new java.awt.Font("Montserrat", 0, 12)); // NOI18N
-        jButton1.setText("Login");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLogin.setBackground(new java.awt.Color(51, 102, 255));
+        btnLogin.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
+        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogin.setText("Login");
+        btnLogin.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnLogin.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLoginActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Montserrat Black", 0, 24)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -82,7 +100,7 @@ public class LoginFrame extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtPass)
                     .addComponent(txtUser)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -108,7 +126,7 @@ public class LoginFrame extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(61, 61, 61))
         );
 
@@ -142,8 +160,61 @@ public class LoginFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
+        String user = txtUser.getText();
+        String password = new String(txtPass.getPassword());
+        
+        if (user.isEmpty() || password.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please fill in all the fields.", "Input Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        int authResult = userService.authenticateUser(user, password);
+
+        if (authResult == 1) {
+            loggedInUser = userService.getUserDetails(user);
+            JOptionPane.showMessageDialog(this, "Welcome, " + loggedInUser.getRole() + "!", "Login Successful", JOptionPane.INFORMATION_MESSAGE);
+        } else if (authResult == 0) {
+            errorCount--;
+            JOptionPane.showMessageDialog(this, "Invalid password. You have " + errorCount + " attempts left.", "Login Failed", JOptionPane.ERROR_MESSAGE);
+            txtPass.setText("");
+
+            if (errorCount == 0) {
+                btnLogin.setEnabled(false);
+                JOptionPane.showMessageDialog(this, "Maximum login attempts exceeded. Please wait 30 seconds.", "Login Failed", JOptionPane.ERROR_MESSAGE);
+                startCountdown();
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "User  not found.", "Authentication Error", JOptionPane.ERROR_MESSAGE);
+            txtPass.setText("");
+            txtUser.setText("");
+        }
+    }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void startCountdown() {
+        btnLogin.setText("");
+        countdownTime = 30;
+        countdownTimer = new Timer(1000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                btnLogin.setForeground(java.awt.Color.RED);
+                if (countdownTime > 0) {
+                    btnLogin.setText("Try again in " + countdownTime + " seconds");
+                    countdownTime--;
+                } else {
+                    countdownTimer.stop();
+                    btnLogin.setEnabled(true);
+                    btnLogin.setForeground(new java.awt.Color(255, 255, 255));
+                    btnLogin.setText("Login");
+                    errorCount = 3;
+                }
+            }
+        });
+        countdownTimer.start();
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnLogin;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
