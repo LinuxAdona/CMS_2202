@@ -174,6 +174,9 @@ public class Login extends javax.swing.JFrame {
         if (authResult == 1) {
             loggedInUser = userService.getUserDetails(user);
             JOptionPane.showMessageDialog(this, "Welcome, " + loggedInUser.getRole() + "!", "Login Successful", JOptionPane.INFORMATION_MESSAGE);
+            AdminPage admin = new AdminPage();
+            admin.setVisible(true);
+            this.dispose();
         } else if (authResult == 0) {
             errorCount--;
             JOptionPane.showMessageDialog(this, "Invalid password. You have " + errorCount + " attempts left.", "Login Failed", JOptionPane.ERROR_MESSAGE);

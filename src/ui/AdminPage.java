@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package im_semproj;
+package ui;
 
 public class AdminPage extends javax.swing.JFrame {
 
@@ -128,6 +128,7 @@ public class AdminPage extends javax.swing.JFrame {
         });
 
         jLabel6.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\ADMIN\\OneDrive\\Documents\\NetBeansProjects\\CMS_2202\\src\\imgs\\group_16dp_000000_FILL0_wght400_GRAD0_opsz20.png")); // NOI18N
         jLabel6.setText("Student Information");
         jLabel6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -135,17 +136,17 @@ public class AdminPage extends javax.swing.JFrame {
             }
         });
 
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/description_16dp_000000_FILL0_wght400_GRAD0_opsz20.png"))); // NOI18N
+        jLabel7.setIcon(new javax.swing.ImageIcon("C:\\Users\\ADMIN\\OneDrive\\Documents\\NetBeansProjects\\CMS_2202\\src\\imgs\\description_16dp_000000_FILL0_wght400_GRAD0_opsz20.png")); // NOI18N
 
         jLabel8.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel8.setText("Curriculum");
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/book_2_16dp_000000_FILL0_wght400_GRAD0_opsz20.png"))); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon("C:\\Users\\ADMIN\\OneDrive\\Documents\\NetBeansProjects\\CMS_2202\\src\\imgs\\book_2_16dp_000000_FILL0_wght400_GRAD0_opsz20.png")); // NOI18N
 
         jLabel10.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel10.setText("Subject / Courses");
 
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/account_balance_16dp_000000_FILL0_wght400_GRAD0_opsz20.png"))); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/account_balance_16dp_000000_FILL0_wght400_GRAD0_opsz20.png"))); // NOI18N
 
         jLabel12.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jLabel12.setText("Programs");
@@ -195,7 +196,7 @@ public class AdminPage extends javax.swing.JFrame {
         Dashboard.setBackground(new java.awt.Color(153, 255, 255));
         Dashboard.setLayout(new java.awt.BorderLayout());
 
-        StudentInfo.setBackground(new java.awt.Color(255, 255, 153));
+        StudentInfo.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout StudentInfoLayout = new javax.swing.GroupLayout(StudentInfo);
         StudentInfo.setLayout(StudentInfoLayout);
